@@ -1,0 +1,42 @@
+.somePad {
+  padding: 0.3rem;
+}
+
+.center {
+  display: grid;
+  place-items: center;
+}
+
+/* Custom colors */
+
+.pink {
+  background-color: #ffdada;
+}
+
+.blue {
+  background-color: #9ddfd3;
+}
+
+.yellow {
+  background-color: #fcf876;
+}
+
+.green {
+  background-color: #a8dda8;
+}
+
+.purple {
+  background-color: #c3aed6;
+}
+
+.orange {
+  background-color: #fca652;
+}
+
+.coral {
+  background-color: #ffba93;
+}
+
+.white {
+  background-color: #f0f0f0;
+}
