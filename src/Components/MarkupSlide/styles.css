@@ -58,20 +58,26 @@
 }
 
 .btnS {
-  border: none;
-  outline: none;
-  height: 2rem;
-  width: 2rem;
-  display: inline-block;
-  border-radius: 50%;
-  text-decoration: none;
-  color: #fff;
   background-image: linear-gradient(62deg, #1f8cf9 0%, #e0c3fc 100%);
+  border: none;
+  border-radius: 50%;
+  box-shadow: 0 1px 0 rgb(112, 114, 49);
+  color: #fff;
+  display: inline-block;
+  height: 2rem;
+  outline: none;
+  position: relative;
+  text-decoration: none;
   transition: 0.4s;
+  width: 2rem;
 }
 .btnS:hover {
   background-image: linear-gradient(62deg, #0673e0 0%, #e0c3fc 100%);
 }
 .btnS:disabled {
   background-image: linear-gradient(62deg, #8ec5fc 0%, #e0c3fc 100%);
+}
+.btnS:active {
+  box-shadow: none;
+  top: 1px;
 }

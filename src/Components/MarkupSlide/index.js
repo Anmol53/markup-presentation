@@ -1,25 +1,26 @@
-import React, { useState } from "react";
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link,
-  useLocation
-} from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import "./styles.css";
 import InputCode from "./InputCode";
 import Output from "./Output";
+import Data from "./../../Data";
 
-export default function MarkupSlide(props) {
-  const Data = ["a", "b", "c", "d"];
-  const title = "Title goes here";
+export default function MarkupSlide() {
   const [currSlide, setCurrSlide] = useState(0);
+  const [html, setHTML] = useState(Data[0].html);
+  const [css, setCSS] = useState(Data[0].css);
+  const [title, setTitle] = useState(Data[0].title);
   const prev = () => {
     setCurrSlide(currSlide - 1);
   };
   const next = () => {
     setCurrSlide(currSlide + 1);
   };
+  useEffect(() => {
+    setHTML(Data[currSlide].html);
+    setCSS(Data[currSlide].css);
+    setTitle(Data[currSlide].title);
+  }, [currSlide]);
   return (
     <Router>
       <div className="outer-container">
@@ -52,8 +53,8 @@ export default function MarkupSlide(props) {
                   key={`html_${Math.floor(
                     Math.random() * Math.pow(30, 10)
                   ).toString(30)}`}
-                  code={props.codes.html}
-                  updateCode={props.update.html}
+                  code={html}
+                  updateCode={setHTML}
                 />
               </Route>
               <Route path={`/css`}>
@@ -61,16 +62,16 @@ export default function MarkupSlide(props) {
                   key={`css_${Math.floor(
                     Math.random() * Math.pow(30, 10)
                   ).toString(30)}`}
-                  code={props.codes.css}
-                  updateCode={props.update.css}
+                  code={css}
+                  updateCode={setCSS}
                 />
               </Route>
             </Switch>
           </div>
           <div className="output-container">
             <Output
-              html={props.codes.html}
-              css={props.codes.css}
+              html={html}
+              css={css}
               key={`output_${Math.floor(
                 Math.random() * Math.pow(36, 10)
               ).toString(36)}`}
